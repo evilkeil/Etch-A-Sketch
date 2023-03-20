@@ -127,3 +127,17 @@ body{
     background: #333;
 }
 
+/* styles for the sketch area */
+
+#sketch{
+    width: 850px;
+    height: 490px;
+    border: 1px solid white;
+    display: flex; /* so that the divs created will be flex */
+}
+
+.sketch-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
