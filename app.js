@@ -1,4 +1,4 @@
-let rowColumn = 16;    // rows and coulms is 16 by default
+let rowColumn = 16;    // rows and colums is 16 by default
 const setRowColumn = document.querySelector('.set');
 
 // setting up the button which prompts the user to input the amount of rows and colmns in the etch a sketch grid 
