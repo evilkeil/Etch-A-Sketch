@@ -1,4 +1,4 @@
-let rowColumn = 16;    // rows and colums is 16 by default
+let rowColumn = 16; // rows and colums is 16 by default
 const setRowColumn = document.querySelector('.set');
 
 // setting up the button which prompts the user to input the amount of rows and colmns in the etch a sketch grid 
@@ -22,24 +22,17 @@ function rowColumnSetter() {
   }
 }
 
-
 const sketchPad = document.querySelector('#sketch');
 
-//testing document fragment 
+var docFrag = document.createDocumentFragment();
 
-// Create a new DocumentFragment
-const fragment = document.createDocumentFragment();
+for(var i = 0; i < rowColumn * rowColumn; i++) {
+  var div = document.createElement('div'); // Create a new div element
+  div.classList.add('sketchDiv');
+  div.style.border = '1px solid red';
+  docFrag.appendChild(div); // Append the div to the DocumentFragment
+} 
 
-// Create some new DOM nodes and append them to the fragment
-const p1 = document.createElement("p");
-p1.textContent = "This is paragraph 1.";
-fragment.appendChild(p1);
+sketchPad.appendChild(docFrag);
 
-const p2 = document.createElement("p");
-p2.textContent = "This is paragraph 2.";
-fragment.appendChild(p2);
-
-// Append the entire fragment to the main document tree
-sketchPad.appendChild(fragment);
-
-
+sketchPad.style.cssText = `grid-template-columns: repeat(${rowColumn}, 1fr); grid-template-rows: repeat(${rowColumn}, 1fr); border: 1px solid white;`;
