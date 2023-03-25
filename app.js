@@ -51,18 +51,3 @@ sketchGrid.addEventListener('mouseover',function(e){
   }
 })
 
-// sketchGrid.addEventListener('mouseover',function(e){
-//   if (e.target.classList.contains('sketch-cell')){
-//     if(e.target.classList.contains('sketchWhite')){
-//       e.target.classList.remove('sketchWhite');
-//       e.target.classList.add('sketchGreen');
-
-//     }else if(e.target.classList.contains('sketchGreen')){
-//       e.target.classList.remove('sketchGreen');
-//       e.target.classList.add('sketchRed');
-//     }else if(e.target.classList.contains('sketchRed')){
-//       e.target.classList.remove('sketchRed');
-//       e.target.classList.add('sketchWhite');
-//     }
-//   }
-// })
