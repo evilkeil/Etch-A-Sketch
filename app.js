@@ -24,6 +24,10 @@ setBtn.addEventListener('click', () => {
   setGrid(rows, columns);
 });
 
+document.querySelector('.btn.reset').addEventListener('click', function() {
+  sketchGrid.innerHTML = '';
+});
+
 sketchGrid.addEventListener('mouseover',function(e){
   if (e.target.classList.contains('sketch-cell')){
     switch(true){
