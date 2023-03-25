@@ -1,42 +1,64 @@
-let rowColumn = 16; // rows and colums is 16 by default
-const setRowColumn = document.querySelector('.set');
+const sketchGrid = document.getElementById('sketch');
 
-// setting up the button which prompts the user to input the amount of rows and colmns in the etch a sketch grid 
-setRowColumn.addEventListener("click", rowColumnSetter);
+function setGrid(rows, columns) {
+  // Clear any existing grid
+  sketchGrid.innerHTML = '';
 
-// function for the row column setter
-function rowColumnSetter() {
-  let tempRowCol = prompt("Set rows and columns", 16);
-  if (isNaN(tempRowCol)) {
-    alert("Please enter a number");
-  } else {
-    tempRowCol = Number(tempRowCol);
-    if (tempRowCol <= 0) {
-      alert("Please set a number over zero");
-    } else if (tempRowCol > 100) {
-      alert("Please set a number less than 100");
-    } else {
-      rowColumn = tempRowCol;
-      return tempRowCol;
-    }
+  // Set the CSS grid styles
+  sketchGrid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+  sketchGrid.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+
+  // Create and add new div elements to the grid
+  for (let i = 0; i < rows * columns; i++) {
+    const div = document.createElement('div');
+    div.classList.add('sketch-cell');
+    div.classList.add('default-BG');
+    sketchGrid.appendChild(div);
   }
 }
 
-const sketchPad = document.querySelector('#sketch');
+const setBtn = document.querySelector('.btn.set');
+setBtn.addEventListener('click', () => {
+  const rows = prompt('Enter number of rows:');
+  const columns = prompt('Enter number of columns:');
+  setGrid(rows, columns);
+});
 
-var docFrag = document.createDocumentFragment();
-
-for(var i = 0; i < rowColumn * rowColumn; i++) {
-  var div = document.createElement('div'); // Create a new div element
-  
-  div.style.border = '1px solid red';
-  docFrag.appendChild(div); // Append the div to the DocumentFragment
-} 
-
-sketchPad.appendChild(docFrag);
-
-sketchPad.style.cssText = `grid-template-columns: repeat(${rowColumn}, 1fr); grid-template-rows: repeat(${rowColumn}, 1fr); border: 1px solid white;`;
-
-sketchPad.addEventListener('mouseover',function(e){
-   e.target.classList.add('sketchDiv');
+sketchGrid.addEventListener('mouseover',function(e){
+  if (e.target.classList.contains('sketch-cell')){
+    switch(true){
+      case (e.target.classList.contains('default-BG')):
+        e.target.classList.remove('default-BG');
+        e.target.classList.add('sketchWhite');
+        break;
+      case (e.target.classList.contains('sketchWhite')):
+        e.target.classList.remove('sketchWhite');
+        e.target.classList.add('sketchGreen');
+        break;
+      case (e.target.classList.contains('sketchGreen')):
+        e.target.classList.remove('sketchGreen');
+        e.target.classList.add('sketchRed');
+        break;
+      case (e.target.classList.contains('sketchRed')):
+        e.target.classList.remove('sketchRed');
+        e.target.classList.add('sketchWhite');
+        break;
+    }
+  }
 })
+
+// sketchGrid.addEventListener('mouseover',function(e){
+//   if (e.target.classList.contains('sketch-cell')){
+//     if(e.target.classList.contains('sketchWhite')){
+//       e.target.classList.remove('sketchWhite');
+//       e.target.classList.add('sketchGreen');
+
+//     }else if(e.target.classList.contains('sketchGreen')){
+//       e.target.classList.remove('sketchGreen');
+//       e.target.classList.add('sketchRed');
+//     }else if(e.target.classList.contains('sketchRed')){
+//       e.target.classList.remove('sketchRed');
+//       e.target.classList.add('sketchWhite');
+//     }
+//   }
+// })

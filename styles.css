@@ -161,6 +161,12 @@ body{
 } 
 */
 
-.sketchDiv{
+.sketchWhite{
   background-color: white ;
+} 
+.sketchGreen{
+  background-color: green;
+} 
+.sketchRed{
+  background-color: red ;
 } 
