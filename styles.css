@@ -150,3 +150,17 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+/*
+.sketch.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+  gap: 1px;
+  border: 1px solid red;
+} 
+*/
+/*
+sketchDiv{
+  background-color: white !important;
+} */
