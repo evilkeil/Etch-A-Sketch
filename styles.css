@@ -160,7 +160,7 @@ body{
   border: 1px solid red;
 } 
 */
-/*
-sketchDiv{
-  background-color: white !important;
-} */
+
+.sketchDiv{
+  background-color: white ;
+} 
