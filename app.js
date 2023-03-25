@@ -28,7 +28,7 @@ var docFrag = document.createDocumentFragment();
 
 for(var i = 0; i < rowColumn * rowColumn; i++) {
   var div = document.createElement('div'); // Create a new div element
-  div.classList.add('sketchDiv');
+  
   div.style.border = '1px solid red';
   docFrag.appendChild(div); // Append the div to the DocumentFragment
 } 
@@ -36,3 +36,7 @@ for(var i = 0; i < rowColumn * rowColumn; i++) {
 sketchPad.appendChild(docFrag);
 
 sketchPad.style.cssText = `grid-template-columns: repeat(${rowColumn}, 1fr); grid-template-rows: repeat(${rowColumn}, 1fr); border: 1px solid white;`;
+
+sketchPad.addEventListener('mouseover',function(e){
+   e.target.classList.add('sketchDiv');
+})
